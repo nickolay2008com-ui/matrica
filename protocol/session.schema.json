@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrica.local/schemas/session.schema.json",
+  "title": "Matrix Decision Session",
+  "type": "object",
+  "required": [
+    "session_id",
+    "protocol_version",
+    "created_at",
+    "focus",
+    "matrix_signals",
+    "hypotheses",
+    "reality",
+    "options",
+    "recommendation",
+    "action_plan"
+  ],
+  "properties": {
+    "session_id": { "type": "string", "minLength": 1 },
+    "protocol_version": { "const": "1.0.0" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "domain_mode": {
+      "type": "string",
+      "enum": [
+        "relationships",
+        "money",
+        "career",
+        "business",
+        "relocation",
+        "partnership",
+        "crisis",
+        "personal_growth",
+        "other"
+      ]
+    },
+    "focus": {
+      "type": "object",
+      "required": ["decision_question", "desired_outcome", "stakes", "reversibility"],
+      "properties": {
+        "decision_question": { "type": "string", "minLength": 1 },
+        "desired_outcome": { "type": "string", "minLength": 1 },
+        "time_horizon": { "type": ["string", "null"] },
+        "current_options": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "constraints": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "stakes": { "type": "string", "enum": ["low", "medium", "high"] },
+        "reversibility": { "type": "string", "enum": ["easy", "partial", "hard"] }
+      },
+      "additionalProperties": false
+    },
+    "matrix_signals": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "archetype", "resource", "shadow", "relevance"],
+        "properties": {
+          "id": { "type": "string" },
+          "source": { "type": "string" },
+          "archetype": { "type": "string" },
+          "resource": { "type": "string" },
+          "shadow": { "type": "string" },
+          "relevance": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "statement", "supporting_signal_ids", "observable_evidence_needed", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "statement": { "type": "string" },
+          "supporting_signal_ids": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "observable_evidence_needed": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "status": {
+            "type": "string",
+            "enum": ["unverified", "partially_verified", "verified", "contradicted"]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "reality": {
+      "type": "object",
+      "required": ["known_facts", "unknowns", "constraints", "past_patterns", "contradictions"],
+      "properties": {
+        "known_facts": { "$ref": "#/$defs/evidenceItems" },
+        "unknowns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "constraints": { "$ref": "#/$defs/evidenceItems" },
+        "past_patterns": { "$ref": "#/$defs/evidenceItems" },
+        "contradictions": { "$ref": "#/$defs/evidenceItems" }
+      },
+      "additionalProperties": false
+    },
+    "options": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "class",
+          "label",
+          "benefits",
+          "risks",
+          "costs",
+          "reversibility",
+          "goal_fit",
+          "matrix_resonance"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "class": {
+            "type": "string",
+            "enum": ["status_quo", "direct_move", "reversible_bridge", "third_path", "other"]
+          },
+          "label": { "type": "string" },
+          "benefits": { "type": "array", "items": { "type": "string" } },
+          "risks": { "type": "array", "items": { "type": "string" } },
+          "costs": { "type": "array", "items": { "type": "string" } },
+          "reversibility": { "type": "string", "enum": ["easy", "partial", "hard"] },
+          "what_must_be_true": { "type": "array", "items": { "type": "string" } },
+          "goal_fit": { "type": "number", "minimum": 0, "maximum": 1 },
+          "verified_pattern_fit": { "type": "number", "minimum": 0, "maximum": 1 },
+          "matrix_resonance": { "type": "number", "minimum": 0, "maximum": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "recommendation": {
+      "type": "object",
+      "required": [
+        "recommended_option_id",
+        "why_this_option",
+        "main_tradeoff",
+        "confidence",
+        "what_could_change_the_recommendation",
+        "matrix_role"
+      ],
+      "properties": {
+        "recommended_option_id": { "type": "string" },
+        "why_this_option": { "type": "string" },
+        "main_tradeoff": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "what_could_change_the_recommendation": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "matrix_role": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "action_plan": {
+      "type": "object",
+      "required": ["next_step", "success_signal", "failure_signal", "review_at", "stop_condition"],
+      "properties": {
+        "next_step": { "type": "string" },
+        "success_signal": { "type": "string" },
+        "failure_signal": { "type": "string" },
+        "review_at": { "type": ["string", "null"] },
+        "stop_condition": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "feedback": {
+      "type": ["object", "null"],
+      "properties": {
+        "actual_action": { "type": ["string", "null"] },
+        "actual_result": { "type": ["string", "null"] },
+        "confirmed_hypotheses": { "type": "array", "items": { "type": "string" } },
+        "contradicted_hypotheses": { "type": "array", "items": { "type": "string" } },
+        "personal_model_updates": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "evidenceItem": {
+      "type": "object",
+      "required": ["statement", "source_type"],
+      "properties": {
+        "statement": { "type": "string" },
+        "source_type": {
+          "type": "string",
+          "enum": ["user_report", "observed_fact", "external_evidence", "inference"]
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "evidenceItems": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceItem" }
+    }
+  },
+  "additionalProperties": false
+}
