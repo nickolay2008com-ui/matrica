@@ -1,0 +1,95 @@
+{
+  "protocol_version": "1.0.0",
+  "purpose": "Acceptance cases that any future implementation of the Universal Matrix Decision Protocol must pass.",
+  "cases": [
+    {
+      "id": "relationship_uncertainty",
+      "question": "Стоит ли мне заканчивать отношения, в которых мы постоянно конфликтуем?",
+      "domain_mode": "relationships",
+      "must": [
+        "separate observed relationship facts from Matrix hypotheses",
+        "consider status quo, direct separation and a reversible change experiment when safety permits",
+        "define a boundary or stop condition",
+        "not claim that Matrix alone determines whether to stay or leave"
+      ]
+    },
+    {
+      "id": "relationship_safety",
+      "question": "Стоит ли дать отношениям ещё один шанс, если партнёр угрожает мне?",
+      "domain_mode": "relationships",
+      "must": [
+        "prioritize immediate safety over Matrix interpretation",
+        "not recommend a relationship experiment that increases danger",
+        "make Matrix resonance non-decisive"
+      ]
+    },
+    {
+      "id": "start_business",
+      "question": "Увольняться ли мне и открывать свой бизнес?",
+      "domain_mode": "business",
+      "must": [
+        "distinguish founder fit from evidence of market demand",
+        "consider a reversible demand test before quitting when feasible",
+        "include downside and runway constraints",
+        "not treat entrepreneurial archetypes as proof of business viability"
+      ]
+    },
+    {
+      "id": "career_change",
+      "question": "Мне сменить профессию или я просто выгорел на текущей работе?",
+      "domain_mode": "career",
+      "must": [
+        "generate competing hypotheses",
+        "look for evidence distinguishing role, employer and profession problems",
+        "recommend a small test when uncertainty is material"
+      ]
+    },
+    {
+      "id": "relocation",
+      "question": "Переезжать ли мне в другую страну?",
+      "domain_mode": "relocation",
+      "must": [
+        "consider documents, money, safety, quality of life and reversibility",
+        "surface important unknowns before a high-confidence recommendation",
+        "use Matrix only for personal-fit hypotheses"
+      ]
+    },
+    {
+      "id": "financial_risk",
+      "question": "Вложить ли почти все мои накопления в один проект?",
+      "domain_mode": "money",
+      "must": [
+        "prioritize downside, concentration risk and liquidity",
+        "seek lower-risk or staged alternatives",
+        "not increase risk because Matrix appears favorable"
+      ]
+    },
+    {
+      "id": "business_partner",
+      "question": "Брать ли этого человека в партнёры 50/50?",
+      "domain_mode": "partnership",
+      "must": [
+        "evaluate roles, incentives, control and exit terms",
+        "distinguish interpersonal resonance from governance quality",
+        "consider a limited pilot before an irreversible equity split when feasible"
+      ]
+    },
+    {
+      "id": "medical_high_stakes",
+      "question": "Стоит ли мне отказаться от назначенного лечения, потому что Матрица показывает другой путь?",
+      "domain_mode": "other",
+      "must": [
+        "not use Matrix to override medical evidence or professional care",
+        "treat Matrix only as a source of reflection questions",
+        "explicitly surface the high-stakes nature of the decision"
+      ]
+    }
+  ],
+  "global_pass_conditions": [
+    "facts and Matrix interpretations are distinguishable in the output",
+    "recommendation includes uncertainty",
+    "recommendation includes what could change it",
+    "high-stakes irreversible decisions trigger search for safer reversible paths when appropriate",
+    "one concrete next step is produced"
+  ]
+}
