@@ -1,0 +1,151 @@
+{
+  "id": "universal-matrix-decision-protocol",
+  "version": "1.0.0",
+  "name": "Universal Matrix Decision Protocol",
+  "purpose": "Turn a concrete life question into a grounded next action using Matrix signals as hypothesis generators, never as facts or overriding evidence.",
+  "core_principle": "matrix_signal -> hypothesis -> real_world_check -> options -> recommendation -> action -> feedback",
+  "priorities": [
+    "safety",
+    "verified_facts",
+    "user_goals",
+    "constraints",
+    "expected_value",
+    "downside",
+    "reversibility",
+    "verified_personal_patterns",
+    "matrix_resonance"
+  ],
+  "steps": [
+    {
+      "id": "focus",
+      "order": 1,
+      "name": "Сфокусировать вопрос",
+      "goal": "Convert an emotional or broad situation into one decision question.",
+      "required_outputs": [
+        "decision_question",
+        "desired_outcome",
+        "time_horizon",
+        "current_options",
+        "constraints",
+        "stakes",
+        "reversibility"
+      ]
+    },
+    {
+      "id": "select_matrix_signals",
+      "order": 2,
+      "name": "Выбрать релевантные сигналы Матрицы",
+      "goal": "Select only 3-7 Matrix signals relevant to the current decision.",
+      "required_outputs": ["matrix_signals"],
+      "rules": [
+        "Do not read the full Matrix when only a subset is relevant.",
+        "Every signal must explain why it matters for this decision."
+      ]
+    },
+    {
+      "id": "build_hypotheses",
+      "order": 3,
+      "name": "Построить проверяемые гипотезы",
+      "goal": "Translate symbolic interpretation into observable behavioral hypotheses.",
+      "required_outputs": ["hypotheses"],
+      "rules": [
+        "A Matrix interpretation is never stored as a verified fact by default.",
+        "Every hypothesis must specify what evidence could support or contradict it."
+      ]
+    },
+    {
+      "id": "ground_reality",
+      "order": 4,
+      "name": "Заземлить в реальность",
+      "goal": "Build an independent evidence layer that can confirm or contradict the Matrix-derived hypotheses.",
+      "required_outputs": [
+        "known_facts",
+        "unknowns",
+        "constraints",
+        "past_patterns",
+        "contradictions"
+      ]
+    },
+    {
+      "id": "generate_options",
+      "order": 5,
+      "name": "Создать реальные ходы",
+      "goal": "Generate multiple actionable paths instead of a binary yes/no answer.",
+      "required_option_classes": [
+        "status_quo",
+        "direct_move",
+        "reversible_bridge",
+        "third_path"
+      ],
+      "required_outputs": ["options"],
+      "rules": [
+        "For high-stakes or hard-to-reverse decisions, actively search for a reversible bridge before recommending the irreversible move."
+      ]
+    },
+    {
+      "id": "recommend",
+      "order": 6,
+      "name": "Выбрать лучший следующий ход",
+      "goal": "Produce a grounded recommendation with explicit trade-offs and uncertainty.",
+      "required_outputs": [
+        "recommended_option_id",
+        "why_this_option",
+        "main_tradeoff",
+        "confidence",
+        "what_could_change_the_recommendation",
+        "matrix_role"
+      ],
+      "rules": [
+        "If Matrix interpretation conflicts with verified facts, verified facts win.",
+        "Matrix resonance cannot override safety, law, medical evidence or material financial risk."
+      ]
+    },
+    {
+      "id": "act_and_learn",
+      "order": 7,
+      "name": "Действовать и учиться",
+      "goal": "Turn the recommendation into one concrete action and learn from the result.",
+      "required_outputs": [
+        "next_step",
+        "success_signal",
+        "failure_signal",
+        "review_at",
+        "stop_condition"
+      ],
+      "feedback_outputs": [
+        "actual_action",
+        "actual_result",
+        "confirmed_hypotheses",
+        "contradicted_hypotheses",
+        "personal_model_updates"
+      ]
+    }
+  ],
+  "domain_modes": {
+    "relationships": ["boundaries", "reciprocity", "safety", "repeating_patterns", "capacity_for_change"],
+    "money": ["cash_flow", "downside", "obligations", "time_horizon", "loss_risk"],
+    "career": ["autonomy", "energy", "skills", "market", "transition_cost"],
+    "business": ["customer_problem", "demand", "distribution", "economics", "founder_fit"],
+    "relocation": ["documents", "money", "safety", "quality_of_life", "reversibility"],
+    "partnership": ["incentives", "roles", "control", "trust", "exit_terms"],
+    "crisis": ["safety", "stabilization", "temporary_options", "decision_capacity"],
+    "personal_growth": ["repeating_pattern", "desired_state", "behavioral_experiment"]
+  },
+  "quality_gate": [
+    "decision_question_is_concrete",
+    "facts_are_separated_from_interpretations",
+    "matrix_claims_are_hypotheses_until_verified",
+    "status_quo_is_considered",
+    "reversible_bridge_considered_for_high_stakes_decisions",
+    "verified_facts_override_matrix_conflicts",
+    "one_clear_next_step_exists",
+    "recommendation_change_conditions_are_explicit"
+  ],
+  "default_user_output": [
+    "what_is_happening",
+    "what_matrix_adds",
+    "real_options",
+    "recommended_move",
+    "next_step"
+  ]
+}
