@@ -38,7 +38,6 @@ function matrixSvg(extraClass = '') {
       <circle cx="50" cy="46" r="32" fill="none" stroke="rgba(176,151,255,.22)" stroke-width=".45"/>
       <ellipse cx="50" cy="46" rx="43" ry="28" fill="none" stroke="rgba(125,231,255,.17)" stroke-width=".4" transform="rotate(-13 50 46)"/>
       ${edges.map(([x1,y1,x2,y2]) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="url(#edge)" stroke-width=".55"/>`).join('')}
-      ${matrixNodes.map(([x,y,tone,label, legacy]) => '').join('')}
       ${matrixNodes.map(([x,y,label,tone]) => `<g class="matrix-node matrix-node--${tone}" transform="translate(${x} ${y})"><circle r="${tone==='center'?6.3:4.6}"/><text y="1.5">${label}</text></g>`).join('')}
     </svg>`;
 }
@@ -191,7 +190,7 @@ app.addEventListener('click', (event) => {
 });
 
 const input = document.querySelector('#questionInput');
-const counter = document.querySelectorr('#counter');
+const counter = document.querySelector('#counter');
 input.addEventListener('input', () => counter.textContent = `${input.value.length} / 300`);
 
 setStep(1);
