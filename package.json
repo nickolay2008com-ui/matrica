@@ -1,9 +1,7 @@
 {
-  "name": "matrica-decision-navigator",
-  "private": true,
-  "version": "0.1.0",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {"node": ">=18"}
+  "name":"matrica-decision-navigator",
+  "private":true,
+  "version":"0.2.0",
+  "scripts":{"start":"node server.js","test":"node tests/engine.test.js"},
+  "engines":{"node":">=18"}
 }
