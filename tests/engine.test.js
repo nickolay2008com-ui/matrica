@@ -1,0 +1,16 @@
+const assert=require('assert');
+const E=require('../src/engine.js');
+assert.strictEqual(E.reduceArcana(22),22);
+assert.strictEqual(E.reduceArcana(29),11);
+assert.strictEqual(E.reduceArcana(40),4);
+const m=E.calculateMatrix('1990-06-15');
+assert.deepStrictEqual(m.anchors,{A:15,B:6,C:19,D:4,E:8});
+assert.ok(Object.values(m.zones).every(n=>n>=1&&n<=22));
+const d=E.buildDecision('Открывать ли свой бизнес?',m);
+assert.strictEqual(d.domain,'business');
+assert.strictEqual(d.steps.length,7);
+assert.ok(d.next.includes('спрос'));
+const safety=E.buildDecision('Партнёр угрожает мне, дать ли ещё шанс?',m);
+assert.strictEqual(safety.domain,'safety');
+assert.strictEqual(safety.risk,'Высокие');
+console.log('engine tests: ok');
