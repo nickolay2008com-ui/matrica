@@ -1,0 +1,9 @@
+{
+  "name":"Matrica — навигатор решений",
+  "short_name":"Matrica",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#071225",
+  "theme_color":"#071225",
+  "lang":"ru"
+}
