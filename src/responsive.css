@@ -1,0 +1,28 @@
+/* responsive app mode */
+@media (max-width: 920px){
+  .concept-board{min-height:100svh;padding:0;background:linear-gradient(180deg,#071225,#0a1730)}
+  .brand,.animation-panel,.step-rail,.cosmos{display:none}
+  .phones{margin:0;display:block;height:100svh}
+  .phone{display:none;width:100%;height:100%;filter:none}
+  .phone.mobile-active{display:block;animation:screenIn .5s cubic-bezier(.2,.8,.2,1)}
+  .phone-frame{width:100%;height:100%;aspect-ratio:auto;padding:0;border-radius:0;background:#071225;box-shadow:none}
+  .phone-screen{border-radius:0;border:0}
+  .dynamic-island{top:1.1%;width:28%;height:2.3%}
+  .statusbar{padding:3.2% 5% 0;font-size:12px}.status-icons{gap:4px}.status-icons i{width:5px;height:5px}.status-icons i:last-child{width:13px}
+  .screen{padding:8.5% 6% 4%}.primary-btn{border-radius:16px;min-height:54px;font-size:15px}.icon-btn,.info-btn{width:34px;font-size:22px}.info-btn{font-size:14px}
+  .screen-heading h3,.topline h3,.analysis-title h3{font-size:31px}.screen-heading p,.analysis-title p{font-size:13px}
+  .welcome-copy h2{font-size:47px}.welcome-copy .caps{font-size:10px}.welcome-copy .muted{font-size:12px}.question-card textarea{font-size:17px}.question-card span{font-size:11px}.tip-card{font-size:12px;border-radius:14px}.question-screen .continue b,.result-action b{width:38px;font-size:19px}
+  .tabs{font-size:11px}.legend{font-size:10px;gap:10px}.legend span::before{width:7px;margin-right:5px}.bottom-nav{font-size:17px}.bottom-nav small{font-size:10px}
+  .protocol-row{border-radius:14px}.protocol-num{width:38px;font-size:13px}.protocol-copy strong{font-size:13px}.protocol-copy small{font-size:10px}.chev{font-size:25px}
+  .result-card{border-radius:16px}.result-card>p:first-child{font-size:11px}.result-card h4{font-size:22px}.metrics{gap:7px}.metrics span{font-size:11px;padding:8px 10px}.metrics b{font-size:16px}.result-note{font-size:10px}.save-btn{font-size:11px}.check{width:78px;font-size:34px}
+}
+@media (min-width:921px) and (max-width:1200px){.animation-panel{display:none}.brand{max-width:72%}.phones{gap:.55vw}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+@keyframes twinkle{0%,100%{opacity:.35;transform:scale(.7)}50%{opacity:1;transform:scale(1.25)}}
+@keyframes shimmer{0%,70%{left:-50%}100%{left:130%}}
+@keyframes floatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes flow{from{transform:translateX(-4%) rotate(-8deg)}50%{transform:translateX(4%) rotate(-6deg)}to{transform:translateX(-4%) rotate(-8deg)}}
+@keyframes orbitDrift{0%,100%{transform:translate(0,0);opacity:.55}50%{transform:translate(7px,-6px);opacity:1}}
+@keyframes orbital{to{transform:rotate(339deg)}}
+@keyframes railTravel{0%{left:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:100%;opacity:0}}
+@keyframes screenIn{from{opacity:0;transform:translateX(16px) scale(.99)}to{opacity:1;transform:none}}
